@@ -1,6 +1,17 @@
+using Autofac.Extensions.DependencyInjection;
+using Autofac;
+using Business.Mapping;
 using DataAccess.Contexts;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using API.Modules;
+using Core.UnitOfWorks;
+using Core.DataAccess.Repositories;
+using Core.Services;
+using Business.Services.Abstract;
+using Business.Services.Concrete;
+using DataAccess.Repositories.Abstract;
+using DataAccess.Repositories.Concrete.EntityFramework;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +29,17 @@ builder.Services.AddDbContext<AppDbContext>(
    }
     ));
 
+//builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(EfGenericRepository<>));
+//builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
+//builder.Services.AddScoped<IMissionService, MissionService>();
+//builder.Services.AddScoped<IMissionDal, EfMissionDal>();
+//builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+builder.Host.UseServiceProviderFactory
+    (new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule(new AutofacModule()));
+
+builder.Services.AddAutoMapper(typeof(MapProfile));
 
 var app = builder.Build();
 

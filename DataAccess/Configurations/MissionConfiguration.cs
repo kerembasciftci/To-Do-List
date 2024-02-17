@@ -17,7 +17,6 @@ namespace DataAccess.Configurations
             builder.Property(x => x.Name).HasMaxLength(20).IsRequired();
             builder.Property(x => x.IsCompleted).IsRequired();
             builder.Property(x => x.Description).HasMaxLength(500).IsRequired();
-            builder.Property(x => x.DueDate).IsRequired(false);
             builder.Property(x => x.IsCompleted).IsRequired();
             builder.Property(x => x.UpdatedTime).IsRequired(false);
         }

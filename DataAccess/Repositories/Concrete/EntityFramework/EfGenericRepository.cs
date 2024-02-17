@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Core.DataAccess.Repositories;
+using DataAccess.Contexts;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,12 +8,12 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.DataAccess.Repositories.EntityFramework
+namespace DataAccess.Repositories.Concrete.EntityFramework
 {
     public class EfGenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private readonly DbContext _dbContext;
-        public EfGenericRepository(DbContext dbContext)
+        private readonly AppDbContext _dbContext;
+        public EfGenericRepository(AppDbContext dbContext)
         {
             _dbContext = dbContext;
         }

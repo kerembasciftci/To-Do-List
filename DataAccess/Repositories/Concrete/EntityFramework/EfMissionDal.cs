@@ -1,4 +1,4 @@
-﻿using Core.DataAccess.Repositories.EntityFramework;
+﻿using DataAccess.Contexts;
 using DataAccess.Repositories.Abstract;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +12,7 @@ namespace DataAccess.Repositories.Concrete.EntityFramework
 {
     public class EfMissionDal : EfGenericRepository<Mission>, IMissionDal
     {
-        public EfMissionDal(DbContext dbContext) : base(dbContext)
+        public EfMissionDal(AppDbContext dbContext) : base(dbContext)
         {
         }
     }
