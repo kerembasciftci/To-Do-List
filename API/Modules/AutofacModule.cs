@@ -1,5 +1,7 @@
 ﻿using Autofac;
 using Business.Mapping;
+using Business.Services.Abstract;
+using Business.Services.Concrete;
 using Core.DataAccess.Repositories;
 using Core.Services;
 using Core.UnitOfWorks;
@@ -17,6 +19,7 @@ namespace API.Modules
         {
             builder.RegisterGeneric(typeof(EfGenericRepository<>)).As(typeof(IGenericRepository<>)).InstancePerLifetimeScope();
             builder.RegisterGeneric(typeof(Service<>)).As(typeof(IService<>)).InstancePerLifetimeScope();
+            builder.RegisterType<LoggerManager>().As<ILoggerService>().InstancePerLifetimeScope();
 
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
 
@@ -29,7 +32,7 @@ namespace API.Modules
             ("Dal")).AsImplementedInterfaces().InstancePerLifetimeScope();
 
             builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly).Where(x => x.Name.EndsWith
-            ("Service")).AsImplementedInterfaces().InstancePerLifetimeScope();
+            ("Manager")).AsImplementedInterfaces().InstancePerLifetimeScope();
 
             //InstancePerLifetimeScope = Scope
             //InstancePerDependency = transient

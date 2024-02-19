@@ -1,0 +1,8 @@
+2024-02-18 16:37:53.6710 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-02-18 16:37:53.7543 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.8.2366. Product version: 5.2.8+f586f1341c46fa38aaaff4c641e7f0fa7e813943. GlobalAssemblyCache: False
+2024-02-18 16:37:53.7543 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\kerem\source\repos\ToDoList\API\nlog.config
+2024-02-18 16:37:53.7796 Info Configuration initialized.
+2024-02-18 16:38:18.6906 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-02-18 16:38:18.7426 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.8.2366. Product version: 5.2.8+f586f1341c46fa38aaaff4c641e7f0fa7e813943. GlobalAssemblyCache: False
+2024-02-18 16:38:18.7639 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\kerem\source\repos\ToDoList\API\nlog.config
+2024-02-18 16:38:18.7832 Info Configuration initialized.

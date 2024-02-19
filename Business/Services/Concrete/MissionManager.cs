@@ -14,11 +14,11 @@ using System.Threading.Tasks;
 
 namespace Business.Services.Concrete
 {
-    public class MissionService : Service<Mission>, IMissionService
+    public class MissionManager : Service<Mission>, IMissionService
     {
         private readonly IMissionDal _missionDal;
         private readonly IMapper _mapper;
-        public MissionService(IGenericRepository<Mission> repository, IUnitOfWork unitOfWork, IMapper mapper, IMissionDal missionDal) : base(repository, unitOfWork)
+        public MissionManager(IGenericRepository<Mission> repository, IUnitOfWork unitOfWork, IMapper mapper, IMissionDal missionDal) : base(repository, unitOfWork)
         {
             _missionDal = missionDal;
             _mapper = mapper;
