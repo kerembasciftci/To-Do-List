@@ -32,6 +32,14 @@ builder.Services.AddDbContext<AppDbContext>(
    }
     ));
 
+builder.Services.AddControllers(config =>
+{
+    config.RespectBrowserAcceptHeader = true;
+    config.ReturnHttpNotAcceptable = true;
+});
+builder.Services.AddControllers().AddXmlDataContractSerializerFormatters();
+
+
 //builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(EfGenericRepository<>));
 //builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 //builder.Services.AddScoped<IMissionService, MissionService>();

@@ -1,8 +1,7 @@
 ﻿using Autofac;
 using Business.Mapping;
-using Business.Services.Abstract;
-using Business.Services.Concrete;
 using Core.DataAccess.Repositories;
+using Core.Log;
 using Core.Services;
 using Core.UnitOfWorks;
 using DataAccess.Contexts;

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Services.Abstract;
 using Core.DataAccess.Repositories;
+using Core.Log;
 using Core.Services;
 using Core.UnitOfWorks;
 using DataAccess.Repositories.Abstract;
@@ -18,7 +19,8 @@ namespace Business.Services.Concrete
     {
         private readonly IMissionDal _missionDal;
         private readonly IMapper _mapper;
-        public MissionManager(IGenericRepository<Mission> repository, IUnitOfWork unitOfWork, IMapper mapper, IMissionDal missionDal) : base(repository, unitOfWork)
+        public MissionManager(IGenericRepository<Mission> repository, ILoggerService loggerService, 
+            IUnitOfWork unitOfWork, IMapper mapper, IMissionDal missionDal) : base(repository, unitOfWork, loggerService)
         {
             _missionDal = missionDal;
             _mapper = mapper;
